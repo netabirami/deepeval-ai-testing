@@ -1,0 +1,12 @@
+# Python virtual environment (reinstall with: pip install -r requirements.txt)
+venv/
+
+# Python / pytest caches
+__pycache__/
+.pytest_cache/
+
+# DeepEval local test results and cache
+.deepeval/
+
+# macOS
+.DS_Store
