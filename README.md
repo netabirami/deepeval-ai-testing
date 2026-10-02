@@ -95,3 +95,4 @@ In a QA role, I would recommend:
 - Using a stronger, independent model as the judge, separate from the model being tested
 - Running each test multiple times and tracking pass-rate trends, not single pass/fail results
 - Treating judge disagreement/contradictory reasoning as its own class of bug to report
+_Last updated by hand from VS Code._

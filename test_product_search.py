@@ -11,7 +11,8 @@ judge = OllamaModel(model="qwen2.5:3b", temperature=0)
 
 # (customer query, expected_output = the correct answer we know from products.json)
 TEST_CASES = [
-    ("white t-shirt, size L, with a print on the left side", "T002 - White Tee with Left Chest Print"),
+    ("white t-shirt, size L, with a print on the left side", 
+    "T002 - White Tee with Left Chest Print"),
     ("black t-shirt", "T004 - Black Graphic T-Shirt"),
     ("red hoodie", "No matches found."),
 ]
