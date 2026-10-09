@@ -11,10 +11,33 @@ judge = OllamaModel(model="qwen2.5:3b", temperature=0)
 
 # (customer query, expected_output = the correct answer we know from products.json)
 TEST_CASES = [
-    ("white t-shirt, size L, with a print on the left side", 
+    # Exact match: one right answer among near-misses (T006 right chest, T008 size S, T013 no print)
+    ("white t-shirt, size L, with a print on the left side",
     "T002 - White Tee with Left Chest Print"),
-    ("black t-shirt", "T004 - Black Graphic T-Shirt"),
-    ("red hoodie", "No matches found."),
+
+    # Many correct answers: the AI must list all of them
+    ("black t-shirt",
+    "T004 - Black Graphic T-Shirt, T009 - Black Tee with Left Chest Print"),
+    ("blue jeans size 32",
+    "J001 - Slim Blue Jeans, J004 - Blue Jeans with Back Pocket Embroidery"),
+    ("hoodie with a print on the back",
+    "H004 - Navy Pullover Hoodie, H005 - Pink Hoodie with Back Print"),
+
+    # Size trap: T002 is the same shirt in size L
+    ("white t-shirt size S with a left chest print",
+    "T008 - White Tee with Left Chest Print"),
+
+    # Category trap: T002 is the same design as a t-shirt
+    ("white hoodie with a left chest print, size L",
+    "H003 - White Hoodie with Left Chest Print"),
+
+    # Vague question: no color or size given
+    ("tee with print on the left sleeve",
+    "T003 - White Tee with Left Sleeve Print, T012 - Green Tee with Left Sleeve Print"),
+
+    # No match: there is a red tee and other hoodies, but no red hoodie
+    ("red hoodie",
+    "No matches found."),
 ]
 
 

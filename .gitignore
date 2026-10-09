@@ -8,5 +8,9 @@ __pycache__/
 # DeepEval local test results and cache
 .deepeval/
 
+# Secret keys (e.g. Confident AI key saved by `deepeval login`)
+.env
+.env.*
+
 # macOS
 .DS_Store
